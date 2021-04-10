@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-1</title>
+</head>
+<body>
+    <input id="btn" type="button" value="dark" onclick="onClickBtn(this.value)"/>
+
+    <div>안녕하세요</div>
+    <div class="target">이 글씨를 흰색으로 바꿔야 해요</div>
+    <div>배경은 검은색으로 바꿔주세요</div>
+
+    <script>
+        function onClickBtn(value){
+            const body = document.querySelector("body");
+            const target = document.querySelector(".target");
+            const btn = document.querySelector("#btn")
+
+            if (value === "dark")
+            {
+                body.style.backgroundColor = "black";
+                target.style.color = "white";
+                btn.value = "light";
+            }
+
+            else{
+                body.style.backgroundColor = "white";
+                target.style.color = "black";
+                btn.value = "dark";
+            }
+        }
+    </script>
+</body>
+</html>

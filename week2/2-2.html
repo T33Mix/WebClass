@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2-2</title>
+  </head>
+  <body>
+    <div>
+      <h1><label class="num">1</label></h1>
+    </div>
+    <div style="display: flex">
+      <input type="button" value="up" onclick="count(this.value)"/>
+      <input type="button" value="down" onclick="count(this.value)"/>
+    </div>
+    <script>
+      // 요구사항
+      // 1. up 버튼 클릭시 숫자가 1 증가한다
+      // 2. down 버튼 클릭시 숫자가 1 감소한다
+
+      // 키워드
+      //     onclick,
+      //     document,
+      //     querySelector,
+      //     getElementById,
+      //     innerhtml
+
+      function count(value){
+        num = document.querySelector(".num").innerHTML;
+
+        Number(num);
+        
+        if(value === "up")
+        {
+            num++;
+        }
+        else{
+            num--;
+        }
+
+        document.querySelector(".num").innerHTML = num;
+        
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-4</title>
+    <style>
+        div{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="SUBMIT()">
+        <fieldset style="width: 300px; background-color: rgb(231, 231, 231);">
+            <div><label>이메일</label><input id="email" type="email" required/></div>
+            <br>
+            <div><label>비밀번호</label><input id="pass" type="password" required/></div>
+            <br>
+            <div><label>비밀번호 확인</label><input id="pass2" type="password" onchange="PWD(this.value)" required/></div>
+            <br>
+            <div><label>이름</label><input id="name" type="text" required/></div>
+            <br>
+            <div><label>나이</label><input id="age" type="text" onkeyup="AGE(this.value)" required/></div>
+            <br>
+            <div><label>성별</label><span><input type="radio" name="sex" value="남" required/> 남 <input type="radio" name="sex" value="여"/> 여 </span></div>
+            <br>
+            <div style="justify-content: center;"><input type="submit" value="제출"/></div>
+        </fieldset>
+    </form>
+
+    <script>
+        age = document.querySelector("#age");
+
+        function PWD(value)
+        {
+            if(document.querySelector("#pass").value !== value)
+            {
+                alert("비밀번호가 서로 다릅니다.");
+                document.querySelector("#pass2").value = "";
+            }
+        }
+
+        function AGE(value)
+        {
+            if(!isNaN(value))
+            {
+                if(value > 99)
+                {
+                    age.value = 99;
+                }
+                else if(value < 0)
+                {
+                    age.value = 0;
+                }
+            }
+            else
+            {
+                alert("숫자로 입력해주세요");
+                age.value = "";
+            }
+            
+        }
+
+        function SUBMIT()
+        {
+            var sex = document.getElementsByName("sex");
+            var sex_value;
+            for(var i = 0; i < sex.length; i++)
+            {
+                if(sex[i].checked)
+                {
+                    sex_value = sex[i].value;
+                }
+            }
+
+            var str = "이메일 : " + document.querySelector("#email").value + 
+                        "\n비밀번호 : " + document.querySelector("#pass").value +
+                        "\n이름 : " + document.querySelector("#name").value +
+                        "\n나이 : " + document.querySelector("#age").value +
+                        "\n성별 : " + sex_value;
+
+            
+
+            alert(str);
+        }
+        
+    </script>
+</body>
+</html>
